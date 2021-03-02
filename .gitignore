@@ -6,6 +6,7 @@
 local.settings.json
 
 # User-specific files
+*.rsuser
 *.suo
 *.user
 *.userosscache
@@ -14,7 +15,8 @@ local.settings.json
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
-
+# Mono auto generated files
+mono_crash.*
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -22,10 +24,14 @@ local.settings.json
 [Rr]eleases/
 x64/
 x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
 bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
+[Ll]ogs/
+
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -43,6 +49,7 @@ Generated\ Files/
 # NUNIT
 *.VisualState.xml
 TestResult.xml
+nunit-*.xml
 
 # Build Results of an ATL Project
 [Dd]ebugPS/
@@ -55,7 +62,6 @@ BenchmarkDotNet.Artifacts/
 # .NET Core
 project.lock.json
 project.fragment.lock.json
-artifacts/
 **/Properties/launchSettings.json
 **/*.Development.json
 
@@ -65,6 +71,7 @@ StyleCopReport.xml
 # Files built by Visual Studio
 *_i.c
 *_p.c
+*_h.h
 *_i.h
 *.ilk
 *.meta
@@ -82,6 +89,7 @@ StyleCopReport.xml
 *.tlh
 *.tmp
 *.tmp_proj
+*_wpftmp.csproj
 *.log
 *.vspscc
 *.vssscc
@@ -184,6 +192,8 @@ PublishScripts/
 
 # NuGet Packages
 *.nupkg
+# NuGet Symbol Packages
+*.snupkg
 # The packages folder can be ignored because of Package Restore
 **/[Pp]ackages/*
 # except build/, which is used as an MSBuild target.
@@ -210,12 +220,15 @@ BundleArtifacts/
 Package.StoreAssociation.xml
 _pkginfo.txt
 *.appx
+*.appxbundle
+*.appxupload
 
 # Visual Studio cache files
 # files ending in .cache can be ignored
 *.[Cc]ache
 # but keep track of directories ending in .cache
 !*.[Cc]ache/
+!?*.[Cc]ache/
 
 # Others
 ClientBin/
@@ -261,6 +274,9 @@ ServiceFabricBackup/
 *.bim.layout
 *.bim_*.settings
 *.rptproj.rsuser
+*- [Bb]ackup.rdl
+*- [Bb]ackup ([0-9]).rdl
+*- [Bb]ackup ([0-9][0-9]).rdl
 
 # Microsoft Fakes
 FakesAssemblies/
@@ -295,6 +311,9 @@ paket-files/
 
 # FAKE - F# Make
 .fake/
+
+# CodeRush personal settings
+.cr/personal
 
 # JetBrains Rider
 .idea/
@@ -337,3 +356,15 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+
+# Local History for Visual Studio
+.localhistory/
+
+# BeatPulse healthcheck temp database
+healthchecksdb
+
+# Backup folder for Package Reference Convert tool in Visual Studio 2017
+MigrationBackup/
+
+# Ionide (cross platform F# VS Code tools) working folder
+.ionide/
