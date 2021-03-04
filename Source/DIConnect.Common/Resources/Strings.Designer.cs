@@ -601,7 +601,7 @@ namespace Microsoft.Teams.Apps.DIConnect.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Group already exist with same link and name. Please try with other.
+        ///   Looks up a localized string similar to An employee group already exists with the same link or name. If you want to create a new group, please try again..
         /// </summary>
         public static string GroupAlreadyExistsErrorMessage {
             get {
@@ -646,7 +646,7 @@ namespace Microsoft.Teams.Apps.DIConnect.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Only team members of the team can create resource group. Please contact your team owner for help..
+        ///   Looks up a localized string similar to It looks like you don&apos;t have permission to create an employee group in this team. Ask the team owner to create it for you..
         /// </summary>
         public static string InvalidGroupMemberErrorMessage {
             get {
@@ -655,7 +655,7 @@ namespace Microsoft.Teams.Apps.DIConnect.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Team not found with in the tenant.
+        ///   Looks up a localized string similar to We can&apos;t find a team associated with this link. Please try again..
         /// </summary>
         public static string InvalidTenantErrorMessage {
             get {
@@ -727,7 +727,7 @@ namespace Microsoft.Teams.Apps.DIConnect.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hey there, looks like we&apos;ve been matched by {0} this week. It&apos;d be great to meet up for a coffee or a lunch or a call if you&apos;ve got time..
+        ///   Looks up a localized string similar to Hey there, it looks like the {0} app matched us up. It would be great to connect if you&apos;ve got time..
         /// </summary>
         public static string MeetupContent {
             get {
@@ -763,7 +763,7 @@ namespace Microsoft.Teams.Apps.DIConnect.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to We haven&apos;t found any matching answer for your question. .
+        ///   Looks up a localized string similar to We don&apos;t have a great match for your question. Try phrasing it in a different way..
         /// </summary>
         public static string NoMatchesFoundText {
             get {
@@ -880,7 +880,7 @@ namespace Microsoft.Teams.Apps.DIConnect.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Here are some of the &quot;Follow-up questions&quot; you might be interested. .
+        ///   Looks up a localized string similar to Similar topics that may interest you..
         /// </summary>
         public static string PromptHeaderText {
             get {
@@ -934,7 +934,7 @@ namespace Microsoft.Teams.Apps.DIConnect.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The employee resource group entity that user is trying to update does not exist.
+        ///   Looks up a localized string similar to Looks like someone deleted this group. For that reason, you won&apos;t be able to update the details..
         /// </summary>
         public static string ResourceGroupNotExistsErrorMessage {
             get {
@@ -943,7 +943,7 @@ namespace Microsoft.Teams.Apps.DIConnect.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Employee resource group entity cannot be null..
+        ///   Looks up a localized string similar to Looks like a space was entered for the group name. Please type the name you want..
         /// </summary>
         public static string ResourceGroupNullOrEmptyErrorMessage {
             get {
@@ -1051,20 +1051,11 @@ namespace Microsoft.Teams.Apps.DIConnect.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bot command is not supported..
+        ///   Looks up a localized string similar to Sorry, the Diversity &amp; Inclusion bot can&apos;t respond to you. Contact your IT admin to check that the bot is set up properly..
         /// </summary>
         public static string UnSupportedBotCommand {
             get {
                 return ResourceManager.GetString("UnSupportedBotCommand", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Bot command is not supported..
-        /// </summary>
-        public static string UnsupportedBotCommandText {
-            get {
-                return ResourceManager.GetString("UnsupportedBotCommandText", resourceCulture);
             }
         }
         

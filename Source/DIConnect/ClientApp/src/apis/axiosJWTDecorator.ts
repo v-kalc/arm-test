@@ -147,7 +147,7 @@ export class AxiosJWTDecorator {
           console.error("Error from getAuthToken: ", error);
           window.location.href = `/signin?locale=${i18n.language}`;
         },
-        resources: []
+       resources : [] as any[]
       };
       microsoftTeams.authentication.getAuthToken(authTokenRequest);
     });

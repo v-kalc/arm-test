@@ -24,7 +24,7 @@ jest.mock("react-i18next", () => ({
         return Component;
     },
 }));
-jest.mock('../../../apis/employeeResourceGroupApi');
+
 jest.mock("@microsoft/teams-js", () => ({
     initialize: () => {
         return true;
@@ -98,6 +98,6 @@ describe('Card', () => {
         }
         expect(tags.length).toBe(3);
         if (tags[0].firstElementChild != null)
-            expect(tags[0].firstElementChild.innerHTML).toBe("tag1");
+            expect(tags[0].firstElementChild.innerHTML).toBe("test1");
     });
 });

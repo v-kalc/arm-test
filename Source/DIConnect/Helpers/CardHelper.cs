@@ -252,7 +252,7 @@ namespace Microsoft.Teams.Apps.DIConnect.Helpers
                 CreatedOnText = this.localizer.GetString("CreatedOn"),
                 FeedbackCreatedDate = DateTime.UtcNow.ToShortDateString(),
                 ChatWithUserButtonText = this.localizer.GetString("ChatWithMatchButtonText", userDetails.GivenName),
-                ChatInitiateURL = new Uri($"{Constants.ChatInitiateURL}?users={Uri.EscapeDataString(userDetails.UserPrincipalName)}&message={Uri.EscapeDataString(this.localizer.GetString("InitiateChatText"))}").ToString(),
+                ChatInitiateURL = new Uri($"{Constants.ChatInitiateURL}?users={Uri.EscapeDataString(userDetails.UserPrincipalName)}&message={Uri.EscapeDataString(Strings.InitiateChatText)}").ToString(),
             };
 
             var cardTemplate = this.GetCardTemplate(CardCacheConstants.ShareFeedbackJsonTemplate, ShareFeedbackCardFileName);

@@ -280,16 +280,16 @@
     <value>Something went wrong. Try exporting the results again.</value>
   </data>
   <data name="GroupAlreadyExistsErrorMessage" xml:space="preserve">
-    <value>Group already exist with same link and name. Please try with other</value>
+    <value>An employee group already exists with the same link or name. If you want to create a new group, please try again.</value>
   </data>
   <data name="GroupCreated" xml:space="preserve">
     <value>Group created</value>
   </data>
   <data name="InvalidTenantErrorMessage" xml:space="preserve">
-    <value>Team not found with in the tenant</value>
+    <value>We can't find a team associated with this link. Please try again.</value>
   </data>
   <data name="InvalidGroupMemberErrorMessage" xml:space="preserve">
-    <value>Only team members of the team can create resource group. Please contact your team owner for help.</value>
+    <value>It looks like you don't have permission to create an employee group in this team. Ask the team owner to create it for you.</value>
   </data>
   <data name="LocationText" xml:space="preserve">
     <value>Location</value>
@@ -310,7 +310,7 @@
     <value>Needs improvement</value>
   </data>
   <data name="NoMatchesFoundText" xml:space="preserve">
-    <value>We haven't found any matching answer for your question. </value>
+    <value>We don't have a great match for your question. Try phrasing it in a different way.</value>
   </data>
   <data name="NotHelpfulTitleText" xml:space="preserve">
     <value>Not helpful</value>
@@ -334,7 +334,7 @@
     <value>It's time for a match!</value>
   </data>
   <data name="MeetupContent" xml:space="preserve">
-    <value>Hey there, looks like we've been matched by {0} this week. It'd be great to meet up for a coffee or a lunch or a call if you've got time.</value>
+    <value>Hey there, it looks like the {0} app matched us up. It would be great to connect if you've got time.</value>
   </data>
   <data name="MeetupTitle" xml:space="preserve">
     <value>Introduction Meet up</value>
@@ -367,7 +367,7 @@
     <value>Permission declined. We will not proceed with the export.</value>
   </data>
   <data name="PromptHeaderText" xml:space="preserve">
-    <value>Here are some of the "Follow-up questions" you might be interested. </value>
+    <value>Similar topics that may interest you.</value>
   </data>
   <data name="ProposeMeetupButtonText" xml:space="preserve">
     <value>Send meeting invite</value>
@@ -385,10 +385,10 @@
     <value>New group suggested</value>
   </data>
   <data name="ResourceGroupNotExistsErrorMessage" xml:space="preserve">
-    <value>The employee resource group entity that user is trying to update does not exist</value>
+    <value>Looks like someone deleted this group. For that reason, you won't be able to update the details.</value>
   </data>
   <data name="ResourceGroupNullOrEmptyErrorMessage" xml:space="preserve">
-    <value>Employee resource group entity cannot be null.</value>
+    <value>Looks like a space was entered for the group name. Please type the name you want.</value>
   </data>
   <data name="SearchEnabledText" xml:space="preserve">
     <value>Search enabled</value>
@@ -423,14 +423,11 @@
   <data name="Throttled" xml:space="preserve">
     <value>Throttled</value>
   </data>
-  <data name="UnsupportedBotCommandText" xml:space="preserve">
-    <value>Bot command is not supported.</value>
-  </data>
   <data name="YesText" xml:space="preserve">
     <value>Yes</value>
   </data>
   <data name="UnSupportedBotCommand" xml:space="preserve">
-    <value>Bot command is not supported.</value>
+    <value>Sorry, the Diversity &amp; Inclusion bot can't respond to you. Contact your IT admin to check that the bot is set up properly.</value>
   </data>
   <data name="UpdateCardButtonTitle" xml:space="preserve">
     <value>Manage matching settings</value>

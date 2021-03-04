@@ -1,6 +1,6 @@
 The app uses the following data stores:
 1. Azure Storage Account
-1. Application Insights
+2. Application Insights
 
 All these resources are created in your Azure subscription. None are hosted directly by Microsoft.
 
@@ -8,7 +8,7 @@ All these resources are created in your Azure subscription. None are hosted dire
 
 ### Teams Data
 
-The Teams Collection stores the teams who have installed Company Communicator app.
+This table stores the corresponding team information for a Diversity and Inclusion group which is registered in the app.
 
 | Value         | Description
 | ---           | ---
@@ -22,29 +22,28 @@ The Teams Collection stores the teams who have installed Company Communicator ap
 
 ### Users Collection
 
-The Users Collection stores the users who have installed Company Communicator app.
+This table stores all the users information who have installed the personal app.
 
 | Value         | Description
 | ---           | ---
 | PartitionKey  | Constant value as 'User Data'.
-| RowKey        | The user's azure active directory object identifier.
+| RowKey        | The team Id in teams.
 | Timestamp     | The latest DateTime record.
-| AadId         | The user's azure active directory object identifier.
-| ConversationId| The conversation identifier for the chat between the user and the bot.
-| ServiceUrl    | The user's service URL that can be used to notify the user.
-| TenantId      | The user's tenant identifier.
-| UserId        | The user's Id in teams.
+| Name         | The team's name.
+| ServiceUrl    | The service URL that can be used to fetch the team's roster.
+| UserId      | The user's Id in teams
+| TenantId        | The teams's tenant identifier.
 
 ### AppConfig Collection
 
-The App Config Collection stores the user app Id and service url.
+The App Config Collection stores the user app Id, service url and knowledgebase id.
 
 | Value         | Description
 | ---           | ---
 | PartitionKey  | Constant value as 'Settings'.
-| RowKey        | Constants as "ServiceUrl" or "UserAppId". "ServiceUrl" - The value stored is service url. "UserAppId" - The value stored is user app Id.
+| RowKey        | Constants as "ServiceUrl" or "UserAppId". "ServiceUrl" - The value stored is service url. "UserAppId" - The value stored is user app Id. “knowledgeBaseId” – The FAQ knowledge base Id.
 | Timestamp     | The latest DateTime record.
-| Value         | The user's app Id or the service url.
+| Name         | The team's name
 
 ### Notification Data
 
@@ -52,7 +51,7 @@ The Notification Collection stores the notification data.
 
 | Value             | Description
 | ---               | ---
-| PartitionKey      | Constants as "DraftNotifications" or "SendingNotifications" or "SentNotifications" or "GlobalSendingNotificationData". "DraftNotifications" - The notification is stored in this partition when it is in draft state. "SendingNotifications" - This partition stores the notifcation entry that is used for sending the notification and serialized JSON content. "SentNotifications" - The notification is moved to this partition when it is sent to the recipient.  "GlobalSendingNotificationData" - This partition stores the Retry Delay time when the system is being throttled.
+| PartitionKey      | Constants as "DraftNotifications" or "SendingNotifications" or "SentNotifications" or "GlobalSendingNotificationData". "DraftNotifications" - The notification is stored in this partition when it is in draft state. "SendingNotifications" - This partition stores the notifcation entry that is used for sending the notification and serialized JSON content. "SentNotifications" - The notification is moved to this partition when it is sent to the recipient. "GlobalSendingNotificationData" - This partition stores the Retry Delay time when the system is being throttled.
 | RowKey            | The notification unique identifier.
 | Timestamp         | The latest DateTime record.
 | Id                | The notification identifier.
@@ -93,9 +92,7 @@ The SentNotification Collection stores the sent notification data.
 | PartitionKey      | The notification unique identifier.
 | RowKey            | The user's identifier.
 | Timestamp         | The latest DateTime record.
-| AllSendStatusCodes| The comma separated list representing all of the status code responses received when trying to send the notification to the recipient.
 | ConversationId    | The conversation identifier for the recipient.
-| DeliveryStatus    | The delivery status for the notification to the recipient.
 | IsStatusCodeFromCreateConversation| Indicating if the status code is from the create conversation call.
 | NumberOfFunctionAttemptsToSend    | The number of times an Azure Function instance attempted to send the notification to the recipient.
 | RecipientId       | The recipients unique identifier.
@@ -107,26 +104,6 @@ The SentNotification Collection stores the sent notification data.
 | TotalNumberOfSendThrottles        | The total number of throttle responses the bot received when trying to send the notification to the recipient.
 | UserId            | The user identifier of the recipient.
 
-### SendBatches Data [Deprecated] 
-
-The SendBatches Collection stoes the notification batches data.
-
-| Value             | Description
-| ---               | ---
-| PartitionKey      | Notification Batch unique identifier.
-| RowKey            | User Unique identifier.
-| Timestamp         | The latest DateTime record.
-| ConversationId    | The conversation identifier for the recipient.
-| IsStatusCodeFromCreateConversation| Indicating if the status code is from the create conversation call.
-| NumberOfFunctionAttemptsToSend    | The number of times an Azure Function instance attempted to send the notification to the recipient.
-| RecipientId       | The recipient's user identifier.
-| RecipientType     | The recipient type.
-| ServiceUrl        | The service URL of the recipient.
-| StatusCode        | The status code for the notification received by the bot.
-| TenantId          | The tenant identifier of the recipient.
-| TotalNumberOfSendThrottles        | The total number of throttle responses the bot received when trying to send the notification to the recipient
-| UserId            | The user identifier of the recipient.
-
 ### Export Data
 
 The Export Collection stores the export data.
@@ -136,11 +113,45 @@ The Export Collection stores the export data.
 | PartitionKey      | The user's azure active directory identifier.
 | RowKey            | The notification identifier.
 | Timestamp         | The latest DateTime record.
-| FileName          | The file name for the export data.
-| FileConsentId     | The response identifier of file consent card.
 | SendDate          | The export send date.
 | Status            | The file export status.
 
-## Application Insights
+### Employee Resource Group
 
-See [Telemetry](Telemetry)
+This table stores the information for the Employee Resource Groups created by end-users.
+
+| Value             | Description
+| ---               | ---
+| Partition Key (Group Type)      | This represents the partition key of the azure storage table - Type of the group either External or Teams.
+| RowKey            | Represents the unique group id of each row.
+| Timestamp         | The latest DateTime record.
+| GroupId           | Same as Row key.
+| GroupName         | Represents the employee resource group name or team name.
+| GroupDescription  | Represents the employee resource group description or team description.
+| GroupLink         | Represents the external link or team link.
+| ImageLink         | Represents the image link.
+| Tags              | Semicolon separated tags added by user.
+| Location          | Represents the location of the user.
+| IncludeInSearchResults | True if search wants to be enabled not false. Only search enabled groups are available to all end users.
+| IsDeleted         | True if group moved to deleted state not false. It will not be permanently deleted from storage instead a flag will set as deleted. Deleted group members will not be considered for any pair-up meetings.
+| ApprovalStatus    | Admin team member can Approve/Reject any ERG request to make it searchable. InProgress=0, Approve =1, Rejected=2.
+| MatchingFrequency | Pair up matching frequency for each team. It can be updated/modified by Admin team or respective team owners Weekly = 0 ,Monthly = 1.
+| CreatedOn         | Contains the date time of Group creation.
+| Created By UserPrincipalName   | The email address of the end user who created group..
+| Created By ObjectId    | The AAD Object Id of user who created group
+| Updated On        | Last date time on which group was updated.
+| Updated By ObjectId           | The AAD Object Id of user who created group.
+
+### Pair-up Mapping Data
+
+The table stores all the pair up mapping between users and Teams.
+
+| Value         | Description
+| ---           | ---
+| PartitionKey  | Team Id (19:xxx).
+| RowKey        | User object identifier.
+| Timestamp     | The latest DateTime record.
+| TeamId        | TeamID is the unique identifier related to the specific team of which the user is a part of.
+| IsPaused      | Flag set by the user to be picked for next pair up matching for that team.
+| UserId        | This is the unique identifier of a user.
+| TenantId      | Microsoft O365 Tenant ID.

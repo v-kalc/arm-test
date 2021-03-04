@@ -24,6 +24,7 @@ jest.mock("react-i18next", () => ({
     },
 }));
 jest.mock("../../../apis/employeeResourceGroupApi");
+jest.mock("../../../apis/teamDataApi");
 jest.mock("@microsoft/teams-js", () => ({
     initialize: () => {
         return true;

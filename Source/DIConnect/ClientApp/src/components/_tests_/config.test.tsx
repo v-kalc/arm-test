@@ -6,6 +6,7 @@
 import * as React from "react";
 import { Provider } from "@fluentui/react-northstar";
 import { render, unmountComponentAtNode } from "react-dom";
+import * as microsoftTeams from "@microsoft/teams-js";
 import { act } from "react-dom/test-utils";
 import Configuration from "../config";
 import pretty from "pretty";
@@ -23,23 +24,26 @@ jest.mock("react-i18next", () => ({
         return Component;
     },
 }));
+
 jest.mock("@microsoft/teams-js", () => ({
     initialize: () => {
-        return true;
     },
     settings: {
         saveEvent: () => {
-            notifySuccess: () => { };
+            notifySuccess: jest.fn()
         },
-        registerOnSaveHandler: (saveEvent: any) =>
-            saveEvent(
-                Promise.resolve({ teamId: "ewe", entityId: "sdsd", locale: "en-US" })
-            ),
+        registerOnSaveHandler: (saveEvent: any) => {
+            saveEvent.notifySuccess = () => {
+
+            }
+        },
         setSettings: (callback: any) => {
             return true;
         },
+        setValidityState: () => {
+
+        },
     },
-    setValidityState() { },
     getContext: (callback: any) =>
         callback(
             Promise.resolve({ teamId: "ewe", entityId: "sdsd", locale: "en-US" })
@@ -85,15 +89,13 @@ describe("Configuration", () => {
 
     // Note (Prequisites to run or execute the test cases)
     // We have observed some runtime errors while we are runnning the app and simultaneously running the test cases, as we work around comment out the following code
-    // Comment out line no 100 ( 'saveEvent.notifySuccess();' ) in config.tsx file .
-    // Comment out line 103 ( 'microsoftTeams.settings.setValidityState(false);' ) in config.tsx file .
 
     it("checks Communications Tab Text content", async () => {
         let categoryNameInput = document.querySelector(
             "[data-testid=test-communication]"
         );
         if (categoryNameInput != null) {
-            expect(categoryNameInput.innerHTML).toBe("CommunicationsTab");
+            expect(categoryNameInput.innerHTML).toBe("CommunicationsTabOption");
         }
     });
 
@@ -102,7 +104,7 @@ describe("Configuration", () => {
             "[data-testid=test-configuration]"
         );
         if (categoryNameInput != null) {
-            expect(categoryNameInput.innerHTML).toBe("ConfigurationTab");
+            expect(categoryNameInput.innerHTML).toBe("ConfigurationTabOption");
         }
     });
 
@@ -110,7 +112,7 @@ describe("Configuration", () => {
         let categoryImageInput = document.querySelector("[data-testid=img-communication]");
         if (categoryImageInput != null) {
             expect(categoryImageInput.getAttribute("src")).toBe(
-                "http://localhost/image/color.png"
+                "http://localhost/Artifacts/CommunicationsTab.png"
             );
         }
     });
@@ -119,7 +121,7 @@ describe("Configuration", () => {
         let categoryImageInput = document.querySelector("[data-testid=img-configuration]");
         if (categoryImageInput != null) {
             expect(categoryImageInput.getAttribute("src")).toBe(
-                "http://localhost/image/color.png"
+                "http://localhost/Artifacts/ConfigurationTab.png"
             );
         }
     });

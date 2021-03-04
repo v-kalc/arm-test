@@ -72,12 +72,14 @@ class Configuration extends React.Component<WithTranslation, IConfigState> {
                     items={[
                         {
                             key: 'communication',
-                            media: <Image className="img-container" src={getBaseUrl() + "/Artifacts/CommunicationsTab.png"} avatar />,
+                            className:"config-card-container",
+                            media: <Image className="img-container" src={getBaseUrl() + "/Artifacts/CommunicationsTab.png"} />,
                             content: <Text className="text-container" content={this.localize("CommunicationsTabOption")} />,
                         },
                         {
                             key: 'configuration',
-                            media: <Image className="img-container" src={getBaseUrl() + "/Artifacts/ConfigurationTab.png"} avatar />,
+                            className: "config-card-container",
+                            media: <Image className="img-container" src={getBaseUrl() + "/Artifacts/ConfigurationTab.png"} />,
                             content: <Text className="text-container" content={this.localize("ConfigurationTabOption")} />,
                         },
                     ]}

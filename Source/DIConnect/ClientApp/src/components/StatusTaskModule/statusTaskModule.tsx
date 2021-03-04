@@ -9,7 +9,7 @@ import './statusTaskModule.scss';
 import { getSentNotification, exportNotification } from '../../apis/messageListApi';
 import { RouteComponentProps } from 'react-router-dom';
 import * as AdaptiveCards from "adaptivecards";
-import { initializeIcons } from 'office-ui-fabric-react/lib/Icons';
+import { initializeIcons } from 'office-ui-fabric-react';
 import { TooltipHost } from 'office-ui-fabric-react';
 import { Loader, List, Image, Button, DownloadIcon, AcceptIcon, CloseIcon } from '@fluentui/react-northstar';
 import * as microsoftTeams from "@microsoft/teams-js";
@@ -167,7 +167,7 @@ class StatusTaskModule extends React.Component<StatusTaskModuleProps, IStatusSta
                                     <br />
                                     {this.state.message.unknown &&
                                         <>
-                                        <label>{this.localize("Unknown", { "UnknownCount": this.state.message.unknown })}</label>
+                                            <label>{this.localize("Unknown", { "UnknownCount": this.state.message.unknown })}</label>
                                         </>
                                     }
                                 </div>

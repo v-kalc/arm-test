@@ -1,8 +1,8 @@
 ﻿.darkContainer .card-bg {
     background-color: #323131;
     position: relative;
-    width: 100% !important;
-    height: 35rem;
+    width: 35rem !important;
+    height: 38rem !important;
     padding: 1.33rem;
     border-radius: 0.25rem;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10);
@@ -11,8 +11,8 @@
 .highContrastContainer .card-bg {
     background-color: #000;
     position: relative;
-    width: 100% !important;
-    height: 35rem;
+    width: 35rem !important;
+    height: 38rem !important;
     padding: 1.33rem;
     border-radius: 0.25rem;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10);
@@ -21,8 +21,8 @@
 .defaultContainer .card-bg {
     background-color: #fff;
     position: relative;
-    width: 100% !important;
-    height: 32rem;
+    width: 35rem !important;
+    height: 38rem !important;
     padding: 1.33rem;
     border-radius: 0.25rem;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10);
@@ -67,10 +67,12 @@
     position: relative;
     width: inherit;
     margin-bottom: 0.3rem;
+    padding-top:0.5rem;
 }
 
 .card-content-flex {
     overflow: hidden;
+    padding-top:0.5rem;
 }
 
 .footer-flex {
@@ -97,7 +99,6 @@
     word-wrap: break-word !important;
     word-break: break-word!important;
     display: -webkit-box;
-    -webkit-line-clamp: 4 !important;
     -webkit-box-orient: vertical;
 }
 
@@ -112,7 +113,7 @@
     position: absolute;
 }
 
-.site-subdiv-cardview {
+.container-subdiv-cardview {
     height: 100vh;
     overflow: hidden;
     max-width: 170rem;
@@ -182,6 +183,69 @@
 
 .app-logo {
     margin-top: 8rem;
+}
+
+/*If the screen zoom level is 50% or less */
+@media (min-width: 2500px) {
+    .tile-render {
+        grid-template-columns: repeat(5, 1fr) !important;
+    }
+}
+
+/* If the screen zoom level is 80% or less */
+@media (min-width: 1450px ) and (max-width:2499px) {
+    .tile-render {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+}
+
+/* If the screen zoom level is between 90% to 110% */
+@media (max-width: 1449px ) and (min-width: 1090px) {
+    .tile-render {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+/* If the screen zoom level is 125% or more */
+@media (max-width: 1090px) {
+    .tile-render {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* For mobile view */
+@media (max-width: 800px) {
+    .tile-render {
+        grid-template-columns: repeat(1, 0fr) !important;
+    }
+}
+
+/*If the screen zoom level is 50% or less */
+@media (min-width: 2500px) {
+    .container-subdiv-cardview {
+        max-width: 180rem !important;
+    }
+}
+
+/*If the screen zoom level is 80% to 50% */
+@media (min-width: 1450px) and (max-width:2499px) {
+    .container-subdiv-cardview {
+        max-width: 148rem !important;
+    }
+}
+
+/* If the screen zoom level is between 90% to 110% */
+@media (max-width: 1440px ) and (min-width: 1020px) {
+    .container-subdiv-cardview {
+        max-width: 110rem !important;
+    }
+}
+
+/* If the screen zoom level is 125% or more */
+@media (max-width: 1020px) {
+    .container-subdiv-cardview {
+        max-width: 76rem !important;
+    }
 }
 
 @media only screen and (min-width: 651px) {

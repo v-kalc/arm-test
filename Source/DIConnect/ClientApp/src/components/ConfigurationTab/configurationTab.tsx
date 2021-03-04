@@ -143,7 +143,7 @@ class ConfigurationTab extends React.Component<ConfigurationTabProps, IState> {
                     <Checkbox toggle checked={group.includeInSearchResults} onChange={() => this.onSearchEnableChange(group.includeInSearchResults, group, group.groupId)} />
                 </Flex.Item>
                 <Flex>
-                    <MenuButton trigger={<Button icon={<MoreIcon />} text iconOnly />}
+                    <MenuButton className="menuContainer" trigger={<Button icon={<MoreIcon />} text iconOnly />}
                         menu={[
                             {
                                 icon: <EditIcon size="medium" />,

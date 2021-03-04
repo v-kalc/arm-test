@@ -28,6 +28,36 @@
 	  <ProjectReference Include="..\DIConnect.Send.Func\Microsoft.Teams.Apps.DIConnect.Send.Func.csproj" />
 	  <ProjectReference Include="..\DIConnect\Microsoft.Teams.Apps.DIConnect.csproj" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="Helpers\Cards\ApprovalCard_TestResult.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Helpers\Cards\ApprovalUpdatedCard_TestResult.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Helpers\Cards\ConfigureMatchesCard_TestResult.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Helpers\Cards\FeedbackNotificationCard_TestResult.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Helpers\Cards\QnAResponseCard_TestResult.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Helpers\Cards\QnAWithPromptsResponseCard_TestResult.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Helpers\Cards\ResumePairUpMatchesCard_TestResult.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Helpers\Cards\UserPairUpMatchesCard_TestResult.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Helpers\Cards\WelcomeCardPersonalScope_TestResult.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
 	<Target Name="ChangeAliasesOfStrongNameAssemblies" BeforeTargets="FindReferenceAssembliesForReferences;ResolveReferences">
 		<ItemGroup>
 			<ReferencePath Condition="'%(FileName)' == 'Microsoft.Graph.Beta'">

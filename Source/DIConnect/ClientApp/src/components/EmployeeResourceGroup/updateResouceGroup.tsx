@@ -674,7 +674,7 @@ class UpdateResouceGroup extends React.Component<IUpdateGroupProps, IState> {
                                 className="between-space"
                                 maxLength={Constants.maxLengthName}
                                 fluid
-                                placeholder={this.localize("TeamNamePlaceholder")}
+                                placeholder={this.localize("TeamNamePlaceholder") + "..."}
                                 value={this.state.teamName}
                                 onChange={(event: any) => this.onTeamNameChange(event.target.value)}
                             />
@@ -688,7 +688,7 @@ class UpdateResouceGroup extends React.Component<IUpdateGroupProps, IState> {
                                 className="between-space"
                                 maxLength={Constants.maxLengthDescription}
                                 fluid
-                                placeholder={this.localize("TeamDescriptionPlaceholder")}
+                                placeholder={this.localize("TeamDescriptionPlaceholder") + "..."}
                                 value={this.state.teamDescription}
                                 onChange={(event: any) => this.onTeamDescriptionChange(event.target.value)}
                             />

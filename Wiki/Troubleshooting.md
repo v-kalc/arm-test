@@ -41,8 +41,8 @@ The resource type `Microsoft.Web/sites/sourcecontrols` failed to deploy. The tra
 
 If you had to do this, you may not have received the **botId** and **appDomain** values at the end of the deployment. To find them, go to the "Configuration" section of your Web App.
 
-* **botId:** This is the Microsoft Application ID for the Company Communicator app. It can be found in the "MicrosoftAppId" field of your configuration e.g. 5630f8a2-c2a0-4cda-bdfa-c2fa87654321. For the following steps, it will be referred to as %botId%.
-* **appDomain:** This is the base domain for the Company Communicator app. It is the value in the "AzureAd:ApplicationIdURI" field of your configuration without the "api://" e.g. appName.azurefd.net. For the following steps, it will be referred to as %appDomain%.
+* **botId:** This is the Microsoft Application ID for the Diversity and Inclusion app. It can be found in the "MicrosoftAppId" field of your configuration e.g. 5630f8a2-c2a0-4cda-bdfa-c2fa87654321. For the following steps, it will be referred to as %botId%.
+* **appDomain:** This is the base domain for theDiversity and Inclusion app. It is the value in the "AzureAd:ApplicationIdURI" field of your configuration without the "api://" e.g. appName.azurewebsites.net. For the following steps, it will be referred to as %appDomain%.
 
 We are currently looking into how to make this process more resilient to intermittent failures.
 
@@ -50,8 +50,8 @@ We are currently looking into how to make this process more resilient to intermi
 ## 2. Forgetting the botId or appDomain
 If you forgot the your **botId** and **appDomain** values from the end of the deployment. You can find them in the "Configuration" section of your Web App.
 
-* **botId:** This is the Microsoft Application ID for the Company Communicator app. It can be found in the "MicrosoftAppId" field of your configuration e.g. 5630f8a2-c2a0-4cda-bdfa-c2fa87654321. For the following steps, it will be referred to as %botId%.
-* **appDomain:** This is the base domain for the Company Communicator app. It is the value in the "AzureAd:ApplicationIdURI" field of your configuration without the "api://" e.g. appName.azurefd.net. For the following steps, it will be referred to as %appDomain%.
+* **botId:** This is the Microsoft Application ID for the Diversity and Inclusion app. It can be found in the "MicrosoftAppId" field of your configuration e.g. 5630f8a2-c2a0-4cda-bdfa-c2fa87654321. For the following steps, it will be referred to as %botId%.
+* **appDomain:** This is the base domain for the Diversity and Inclusion app. It is the value in the "AzureAd:ApplicationIdURI" field of your configuration without the "api://" e.g. appName.azurewebsites.net. For the following steps, it will be referred to as %appDomain%.
 
 
 ## 3. Error when attempting to reuse a Microsoft Azure AD application ID for the bot registration
@@ -69,10 +69,10 @@ Either register a new Microsoft Azure AD application or delete the bot registrat
 ## 4. Proactive app installation is not working
 If proactive app installation for a user is not working as expected, make sure you have performed the following:
 
-1. Grant Admin consent to the application for all the graph permissions mentioned [here](https://github.com/OfficeDev/microsoft-teams-company-communicator-app/wiki/Deployment-guide#4-add-permissions-to-your-app).
+1. Grant Admin consent to the application for all the graph permissions mentioned [here](https://github.com/OfficeDev/microsoft-teams-apps-diversityandinclusion/wiki/Deployment-guide#4-add-permissions-to-your-app).
 2. "ProactivelyInstallUserApp" configuration is enabled (set to "true") for the web app and the prep-function.
 3. "UserAppExternalId" configuration matches with the User app Id (in the Teams App manifest) for the web app.
 4. [Upload](https://docs.microsoft.com/en-us/microsoftteams/tenant-apps-catalog-teams) the User app to your tenant's app catalog so that it is available for everyone in your tenant to install.
 
 # Didn't find your problem here?
-Please report the issue [here](https://github.com/OfficeDev/microsoft-teams-company-communicator-app/issues/new)
+Please report the issue [here](https://github.com/OfficeDev/microsoft-teams-apps-diversityandinclusion/issues/new)

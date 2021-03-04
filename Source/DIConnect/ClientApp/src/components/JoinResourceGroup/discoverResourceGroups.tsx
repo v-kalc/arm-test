@@ -15,9 +15,10 @@ import { ICheckBoxItem } from "../FilterBar/filterBar";
 import { getSearchableResourceGroupsAsync } from '../../apis/employeeResourceGroupApi';
 import './card.scss';
 import Constants from '../../constants/constants';
+import { GroupType } from '../../constants/groupType';
 
 export interface IDiscoverResourceGroupsPost {
-    groupType: string;
+    groupType: GroupType;
     groupName: string;
     groupDescription: string;
     imageLink: string;
@@ -195,7 +196,7 @@ class DiscoverResourceGroups extends React.Component<WithTranslation, IDiscoverR
             let scrollViewStyle = { height: "92vh" };
             return (
                 <div className="site-div">
-                    <div className="site-subdiv-cardview">
+                    <div className="container-subdiv-cardview">
                         <FilterBar
                             tagsList={this.state.tagsList}
                             locationsList={this.state.locationsList}

@@ -7,7 +7,7 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { withTranslation, WithTranslation } from "react-i18next";
 import { Input, TextArea, Radiobutton, RadiobuttonGroup } from 'msteams-ui-components-react';
-import { initializeIcons } from 'office-ui-fabric-react/lib/Icons';
+import { initializeIcons } from 'office-ui-fabric-react';
 import * as AdaptiveCards from "adaptivecards";
 import { Button, Loader, Dropdown, Text, Flex, ChevronStartIcon } from '@fluentui/react-northstar';
 import * as microsoftTeams from "@microsoft/teams-js";
@@ -440,7 +440,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                                         </div>
                                     </div>
                                     {(this.state.groupsOptionSelected && this.state.groupAccess) &&
-                                            <Dropdown
+                                        <Dropdown
                                             className="hideToggle"
                                             placeholder={this.localize("SendToGroupsPlaceHolder")}
                                             search={this.onGroupSearch}

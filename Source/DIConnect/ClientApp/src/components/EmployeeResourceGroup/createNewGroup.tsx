@@ -572,7 +572,7 @@ class CreateNewGroup extends React.Component<WithTranslation, IState> {
                                 value={this.state.teamLink}
                                 onChange={this.onTeamLinkChange}
                             />
-                            < Flex className="top-padding">
+                            <Flex className="top-padding">
                                 <Text data-testid="team_name_field" size="small" content={this.localize("TeamName")} />
                                 <Flex.Item push>
                                     {this.getRequiredFieldError(this.state.isTeamNamePresent)}
@@ -582,7 +582,7 @@ class CreateNewGroup extends React.Component<WithTranslation, IState> {
                                 className="between-space"
                                 maxLength={Constants.maxLengthName}
                                 fluid
-                                placeholder={this.localize("TeamNamePlaceholder")}
+                                placeholder={this.localize("TeamNamePlaceholder") + "..."}
                                 value={this.state.teamName}
                                 onChange={(event: any) => this.onTeamNameChange(event.target.value)}
                             />
@@ -596,7 +596,7 @@ class CreateNewGroup extends React.Component<WithTranslation, IState> {
                                 className="between-space"
                                 maxLength={Constants.maxLengthDescription}
                                 fluid
-                                placeholder={this.localize("TeamDescriptionPlaceholder")}
+                                placeholder={this.localize("TeamDescriptionPlaceholder") + "..."}
                                 value={this.state.teamDescription}
                                 onChange={(event: any) => this.onTeamDescriptionChange(event.target.value)}
                             />
